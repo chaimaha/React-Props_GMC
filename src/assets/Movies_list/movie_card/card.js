@@ -7,13 +7,13 @@ const Card = ({ item, handeldata }) => {
   return (
     <div className="card" onClick={() => handeldata(item.name)}>
       <div className="card_left">
-        <img src={item.image} />
+        <img src={item.image} alt="img" />
       </div>
       <div className="card_right">
         <h1>{item.name}</h1>
         <div className="card_right__details">
           <ul>
-            <li>{item.date}</li>
+            <li>{item.date || "default"}</li>
             <li>{item.time}</li>
             <li>{item.type}</li>
           </ul>
@@ -42,14 +42,16 @@ const Card = ({ item, handeldata }) => {
 };
 
 export default Card;
-Card.defaultprops = {
-  id: Math.random(),
-  image:
-    "https://i.pinimg.com/originals/4d/ea/be/4deabeb03554cacdba17995886789005.jpg",
-  rating: 4,
-  name: "Devil's Mile",
-  date: "2014",
-  type: "Action | Crime",
-  description:
-    "A relentlessly-paced hybrid of gritty crime thriller and Lovecraftian supernatural horror, The Devil's Mile follows a trio of kidnappers who take an ill-advised detour en route to deliver...",
+Card.defaultProps = {
+  item: {
+    id: Math.random(),
+    image:
+      "https://i.pinimg.com/originals/4d/ea/be/4deabeb03554cacdba17995886789005.jpg",
+    rating: 4,
+    name: "Devil's Mile",
+    date: "2014",
+    type: "Action | Crime",
+    description:
+      "A relentlessly-paced hybrid of gritty crime thriller and Lovecraftian supernatural horror, The Devil's Mile follows a trio of kidnappers who take an ill-advised detour en route to deliver...",
+  },
 };
